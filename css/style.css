@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Medula+One&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Opti&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: #a61c1c;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+main {
+  background: #f03b3b;
+  border: solid black 2px;
+  border-radius: 13px 13px;
+  padding: 1.5em 10px;
+  margin: 10px;
+}
+#block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: solid #1009098c 2px;
+  border-radius: 14px 14px;
+}
+#titulo {
+  text-align: center;
+  width: 100%;
+  border-bottom: solid #100909cc 2px;
+  font-family: "Kaisei Opti";
+  font-weight: 400;
+  font-style: normal;
+}
+#data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-bottom: solid #1512124b 1.5px;
+}
+#inputs {
+  display: flex;
+  justify-content: center;
+  margin: 0 3vw;
+  flex-wrap: wrap;
+}
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px 13px;
+  font-family: "Medula One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+}
+.input {
+  background: #a61c1c80;
+  border: solid #1009098c 1px;
+  text-align: center;
+  box-shadow: 2px 2px 2px #1009098c;
+  width: 5em;
+  height: 2.77em;
+  color: #ffffff;
+  font-size: x-large;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+input,
+label {
+  display: block;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+#button {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3%;
+  flex-shrink: 1;
+}
+#start {
+  width: 80%;
+  max-width: 24.7em;
+}
+button {
+  cursor: pointer;
+  background-color: #391c1c;
+  text-decoration: none;
+  color: #ffffff;
+  border: none;
+  padding: 0px 18px 5px;
+  border-radius: 7px;
+  font-family: "Medula One", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.7rem;
+}
+#buttons {
+  margin: 2%;
+}
+#timer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: conic-gradient(#880e1c3f 360deg, #f03b3b 0deg);
+  border-radius: 50%;
+  height: 11rem;
+  width: 11rem;
+  margin: 1rem;
+  border: solid #10090956 1px;
+  font-family: "Orbitron", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+#center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f03b3b;
+  border-radius: 50%;
+  height: 9.2rem;
+  width: 9.2rem;
+  border: solid #10090956 1px;
+  font-size: xx-large;
+}
+img {
+  max-width: 200px;
+}
+.tomato {
+  position: absolute;
+}
+.top-left {
+  top: 0;
+  left: 0;
+}
+
+.top-right {
+  top: 0;
+  right: 0;
+  transform: scaleX(-1);
+}
+.bottom-left {
+  bottom: 0;
+  left: 10px;
+}
+
+.bottom-right {
+  bottom: 0;
+  right: 10px;
+}
+@media (max-width: 850px) {
+  .tomato {
+    display: none;
+  }
+  .image-container {
+    background-image: url("/images/tomato.main.png");
+    width: 70vw;
+    height: 30vh;
+    max-width: 450px;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+}

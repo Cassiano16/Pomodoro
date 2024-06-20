@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="icon" href="images/tomato.main.png" />
+    <title>Pomodoro</title>
+    <script src="javascript/script.js" defer></script>
+  </head>
+  <body>
+    <img
+      src="/images/tomato_cima_esquerda.png"
+      class="tomato top-left"
+      alt="tomato left up"
+    />
+    <img
+      src="/images/tomato_cima_esquerda.png"
+      class="tomato top-right"
+      alt="tomato right up"
+    />
+    <div class="image-container"></div>
+    <main>
+      <div id="block">
+        <div id="titulo">
+          <h1>Pomodoro</h1>
+        </div>
+        <div id="data">
+          <div id="inputs">
+            <div class="box">
+              <label for="minutes_input">minutes</label>
+              <input type="number" id="minutes_input" class="input" />
+            </div>
+            <div class="box">
+              <label for="pause-time">Time-Of-Break</label>
+              <input type="number" id="pause-time" class="input" />
+            </div>
+            <div class="box">
+              <label for="times">times</label>
+              <input type="number" id="times" class="input" />
+            </div>
+          </div>
+          <div id="button">
+            <button id="start">start</button>
+          </div>
+        </div>
+        <div id="timer">
+          <div id="center">00:00</div>
+        </div>
+        <div id="buttons">
+          <button id="pause">pause</button>
+          <button id="reset">reset</button>
+        </div>
+      </div>
+    </main>
+    <img
+      src="/images/tomate_baixo_esquerda.png"
+      class="tomato bottom-left"
+      alt="tomato left down"
+    />
+    <img
+      src="/images/tomate_baixo_direita.png"
+      class="tomato bottom-right"
+      alt="tomato right down"
+    />
+  </body>
+</html>
