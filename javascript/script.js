@@ -23,6 +23,7 @@ function twoDigits(x) {
 function degress(x) {
   minutesIntoSec = x * 60;
   halfPerCent = minutesIntoSec * 0.005;
+  fully = 0;
   totalSecond = 0;
   deg = 0;
 }
@@ -86,13 +87,13 @@ function clock() {
     sec = 59;
   }
   totalSecond++;
-  console.log(totalSecond);
-  if (totalSecond >= halfPerCent) {
-    halfPerCent += halfPerCent;
+  while (totalSecond >= fully) {
+    fully += halfPerCent;
     deg += 1.8;
     timerRegress.style.background = `conic-gradient(#880e1c3f ${
       360 - deg
     }deg, #f03b3b 0deg)`;
+    console.log(fully);
   }
 
   if (min < 0) {
