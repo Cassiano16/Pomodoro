@@ -12,7 +12,6 @@ let onBreak;
 let final;
 let cycleCount;
 let totalCycles;
-let deg = 360;
 function twoDigits(x) {
   //put a 0 onside to number < 10
   if (x < 10) {
@@ -21,13 +20,18 @@ function twoDigits(x) {
     return x;
   }
 }
-
+function degress(x) {
+  minutesIntoSec = x * 60;
+  halfPerCent = minutesIntoSec * 0.005;
+  totalSecond = 0;
+  deg = 0;
+}
 function minutes_f() {
   timerDisplay.innerHTML = `${twoDigits(Number(minutes.value))}:00`;
   min = Number(minutes.value) - 1;
   sec = 60;
   start.disabled = true;
-  interval = setInterval(clock, 1000);
+  interval = setInterval(clock, 100);
 }
 
 function break_f() {
@@ -35,7 +39,7 @@ function break_f() {
   min = Number(timeOfPause.value) - 1;
   sec = 60;
   start.disabled = true;
-  interval = setInterval(clock, 1000);
+  interval = setInterval(clock, 100);
 }
 
 start.addEventListener("click", () => {
@@ -48,12 +52,14 @@ start.addEventListener("click", () => {
     final = false;
     cycleCount = 0;
     totalCycles = 1;
+    degress(Number(minutes.value));
     minutes_f();
   } else {
     onBreak = false;
     final = false;
     cycleCount = 0;
     totalCycles = Number(times.value);
+    degress(Number(minutes.value));
     minutes_f();
   }
 });
@@ -78,22 +84,34 @@ function clock() {
   if (sec == -1) {
     min--;
     sec = 59;
-    document.timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg);`;
   }
+  totalSecond++;
+  console.log(totalSecond);
+  if (totalSecond >= halfPerCent) {
+    halfPerCent += halfPerCent;
+    deg += 1.8;
+    timerRegress.style.background = `conic-gradient(#880e1c3f ${
+      360 - deg
+    }deg, #f03b3b 0deg)`;
+  }
+
   if (min < 0) {
     clearInterval(interval); //pause interval
     start.disabled = false;
     if (!onBreak) {
       onBreak = true;
+      degress(Number(timeOfPause.value));
       break_f();
     } else {
       cycleCount++; // Increment the cycle count
       if (cycleCount < totalCycles) {
         onBreak = false;
+        degress(Number(minutes.value));
         minutes_f(); // retart the cycle
       } else if (!final) {
         //final section
         final = true;
+        degress(Number(minutes.value));
         minutes_f();
       }
     }
