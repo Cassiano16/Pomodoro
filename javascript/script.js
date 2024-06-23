@@ -23,7 +23,7 @@ function twoDigits(x) {
 function degress(x) {
   minutesIntoSec = x * 60;
   halfPerCent = minutesIntoSec * 0.005;
-  fully = 0;
+  fully = halfPerCent;
   totalSecond = 0;
   deg = 0;
 }
@@ -40,7 +40,7 @@ function break_f() {
   min = Number(timeOfPause.value) - 1;
   sec = 60;
   start.disabled = true;
-  interval = setInterval(clock, 100);
+  interval = setInterval(clock, 1000);
 }
 
 start.addEventListener("click", () => {
@@ -93,7 +93,6 @@ function clock() {
     timerRegress.style.background = `conic-gradient(#880e1c3f ${
       360 - deg
     }deg, #f03b3b 0deg)`;
-    console.log(fully);
   }
 
   if (min < 0) {
