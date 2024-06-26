@@ -12,6 +12,7 @@ let onBreak;
 let final;
 let cycleCount;
 let totalCycles;
+const audio = new Audio("alarm-clock.mp3");
 function twoDigits(x) {
   //put a 0 onside to number < 10
   if (x < 10) {
@@ -53,6 +54,7 @@ start.addEventListener("click", () => {
     final = false;
     cycleCount = 0;
     totalCycles = 1;
+    timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
     degress(Number(minutes.value));
     minutes_f();
   } else {
@@ -60,6 +62,7 @@ start.addEventListener("click", () => {
     final = false;
     cycleCount = 0;
     totalCycles = Number(times.value);
+    timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
     degress(Number(minutes.value));
     minutes_f();
   }
@@ -71,6 +74,7 @@ pause.addEventListener("click", () => {
   } else {
     interval = setInterval(clock, 1000);
     start.disabled = true;
+    audio.pause();
   }
 });
 reset.addEventListener("click", () => {
@@ -79,6 +83,7 @@ reset.addEventListener("click", () => {
   timerDisplay.innerHTML = `00:00`;
   min = -1;
   cycleCount = 0;
+  timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
 });
 function clock() {
   sec--;
@@ -98,6 +103,7 @@ function clock() {
   if (min < 0) {
     clearInterval(interval); //pause interval
     start.disabled = false;
+    timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
     if (!onBreak) {
       onBreak = true;
       degress(Number(timeOfPause.value));
@@ -115,6 +121,8 @@ function clock() {
         minutes_f();
       }
     }
+    audio.play();
+    pause.click();
     return;
   }
   timerDisplay.innerHTML = `${twoDigits(min)}:${twoDigits(sec)}`;
