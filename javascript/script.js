@@ -33,7 +33,7 @@ function minutes_f() {
   min = Number(minutes.value) - 1;
   sec = 60;
   start.disabled = true;
-  interval = setInterval(clock, 100);
+  interval = setInterval(clock, 1000);
 }
 
 function break_f() {
@@ -57,6 +57,7 @@ start.addEventListener("click", () => {
     timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
     degress(Number(minutes.value));
     minutes_f();
+    audio.pause();
   } else {
     onBreak = false;
     final = false;
@@ -65,6 +66,7 @@ start.addEventListener("click", () => {
     timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
     degress(Number(minutes.value));
     minutes_f();
+    audio.pause();
   }
 });
 pause.addEventListener("click", () => {
