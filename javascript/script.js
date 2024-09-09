@@ -22,6 +22,7 @@ function twoDigits(x) {
   }
 }
 function degress(x) {
+  //calculates the animation proportion
   minutesIntoSec = x * 60;
   halfPerCent = minutesIntoSec * 0.005;
   fully = halfPerCent;
@@ -29,6 +30,7 @@ function degress(x) {
   deg = 0;
 }
 function minutes_f() {
+  //degress the minutes
   timerDisplay.innerHTML = `${twoDigits(Number(minutes.value))}:00`;
   min = Number(minutes.value) - 1;
   sec = 60;
@@ -37,6 +39,7 @@ function minutes_f() {
 }
 
 function break_f() {
+  //it pause and set start value to retart the cycle
   timerDisplay.innerHTML = `${twoDigits(Number(timeOfPause.value))}:00`;
   min = Number(timeOfPause.value) - 1;
   sec = 60;
@@ -45,6 +48,7 @@ function break_f() {
 }
 
 start.addEventListener("click", () => {
+  //start the timer
   if (minutes.value < 1) {
     alert("Please enter a valid number in the minutes input field.");
   } else if (timeOfPause.value < 1) {
@@ -70,6 +74,7 @@ start.addEventListener("click", () => {
   }
 });
 pause.addEventListener("click", () => {
+  //pause when the button is clicked
   if (start.disabled || min == -1) {
     clearInterval(interval);
     start.disabled = false;
@@ -80,6 +85,7 @@ pause.addEventListener("click", () => {
   }
 });
 reset.addEventListener("click", () => {
+  //set the timer to defaut
   clearInterval(interval);
   start.disabled = false;
   timerDisplay.innerHTML = `00:00`;
@@ -88,6 +94,7 @@ reset.addEventListener("click", () => {
   timerRegress.style.background = `conic-gradient(#880e1c3f 360deg, #f03b3b 0deg)`;
 });
 function clock() {
+  //do the timer go to zero
   sec--;
   if (sec == -1) {
     min--;
@@ -127,5 +134,5 @@ function clock() {
     pause.click();
     return;
   }
-  timerDisplay.innerHTML = `${twoDigits(min)}:${twoDigits(sec)}`;
+  timerDisplay.innerHTML = `${twoDigits(min)}:${twoDigits(sec)}`; //display the time on timer
 }
